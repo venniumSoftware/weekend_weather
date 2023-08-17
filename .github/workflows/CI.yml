@@ -35,8 +35,8 @@ jobs:
         env: 
           API_KEY: ${{ secrets.API_KEY }}
         run: |
-        pip install pytest pytest-cov
-        pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+          pip install pytest pytest-cov
+          pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
       - name: Coverage comment
         id: coverage_comment
