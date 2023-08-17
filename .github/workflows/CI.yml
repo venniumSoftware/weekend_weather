@@ -19,7 +19,8 @@ jobs:
       # python-coverage-comment-action branch, and for editing existing
       # comments (to avoid publishing multiple comments in the same PR)
       contents: write
-      actions: write
+      actions: read
+      checks: write
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
