@@ -1,7 +1,9 @@
-name: Python package
-
-on: [push]
-
+name: 'coverage'
+on:
+    pull_request:
+        branches:
+            - master
+            - main
 jobs:
     coverage:
         runs-on: ubuntu-latest
