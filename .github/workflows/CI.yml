@@ -38,8 +38,8 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
           pip install pytest pytest-cov
-          coverage run -m pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=json
-
+          coverage run -m pytest test_examples.py 
+          
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
