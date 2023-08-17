@@ -31,7 +31,10 @@ def getGeoData(input_zip, appid):
   # extracting data in json format
   geo_data = r.json()
   
-  return geo_data
+  if geo_data['cod'] != "200":
+      return None
+  else:
+      return geo_data
   
   
 
@@ -67,11 +70,12 @@ def call_weather_api():
     
   api_key = request.args.get('api_key')
   if True:
-      zipcode = request.args.get('zipcode')
+    zipcode = request.args.get('zipcode')
       
-      geo_data = getGeoData(zipcode, api_key)
+    geo_data = getGeoData(zipcode, api_key)
+    
         
-      if(zipcode != None):
+    if(zipcode != None and geo_data != None):
         latitude = geo_data['lat']
         longitude = geo_data['lon']
         
@@ -149,8 +153,8 @@ def call_weather_api():
           return d
         else:
           return {"Error": "Error Getting Weather Data" }
-      else:
-        return {"Error": "Error GeoCoding Zipcode" }
+    else:
+        return {"Error": "Error GeoCoding Zipcode OR Bad API Key" }
   else:
     return f'API Key Error'
 
