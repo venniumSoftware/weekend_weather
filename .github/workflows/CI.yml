@@ -36,13 +36,8 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
           pip install pytest pytest-cov
-          pytest test_examples.py --cov
+          pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
-      - name: Coverage comment
-        id: coverage_comment
-        uses: py-cov-action/python-coverage-comment-action@v3
-        with:
-          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Store Pull Request comment to be posted
         uses: actions/upload-artifact@v3
@@ -51,4 +46,4 @@ jobs:
           # If you use a different name, update COMMENT_ARTIFACT_NAME accordingly
           name: python-coverage-comment-action
           # If you use a different name, update COMMENT_FILENAME accordingly
-          path: python-coverage-comment-action.txt
+          path: junit/test-results.xml
