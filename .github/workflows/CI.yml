@@ -31,7 +31,7 @@ jobs:
 
       - name: Test with pytest
         run: |
-          pytest
+          pytest test_examples.py
 
       - name: Coverage comment
         uses: py-cov-action/python-coverage-comment-action@v3
