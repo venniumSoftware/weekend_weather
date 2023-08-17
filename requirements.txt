@@ -1,6 +1,6 @@
-pip install pgeocode
-pip install requests
-pip install jsonpath_ng
-pip install flask
-pip install setuptools
-pip install wheel
+pgeocode
+requests
+jsonpath_ng
+flask
+setuptools
+wheel
