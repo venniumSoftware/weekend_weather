@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    name: Run tests & display coverage
+    name: Run tests & display results
     runs-on: ubuntu-latest
     permissions:
       # Gives the action the necessary permissions for publishing new
