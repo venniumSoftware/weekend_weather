@@ -1,9 +1,7 @@
-name: 'build_coverage'
-on:
-    pull_request:
-        branches:
-            - master
-            - main
+name: Python package
+
+on: [push]
+
 jobs:
   build:
     steps:
