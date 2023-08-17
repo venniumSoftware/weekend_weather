@@ -8,7 +8,6 @@ from jsonpath_ng import jsonpath, parse
 
 app = Flask(__name__)
 
-appid = 'c878dea49693710ee047f0d71fa610f4'
 
 def kelvinToFahrenheit(kelvin):
     return round(kelvin * 1.8 - 459.67, 2)
@@ -16,7 +15,7 @@ def kelvinToFahrenheit(kelvin):
 
 ### This function uses an input lat and long to get weather data from openweathermap.org 
 ### It returns data from their free geocode api
-def getGeoData(input_zip):
+def getGeoData(input_zip, appid):
   # api-endpoint
   geo_api_url  = "https://api.openweathermap.org/geo/1.0/zip"
  
@@ -39,7 +38,7 @@ def getGeoData(input_zip):
 
 ### This function uses an input lat and long to get weather data from openweathermap.org 
 ### It returns data from their free api  
-def getWeatherData(latitude, longitude):
+def getWeatherData(latitude, longitude, appid):
   units = 'standard'
 
   weather_api_url = 'https://api.openweathermap.org/data/2.5/forecast'
@@ -67,16 +66,16 @@ def call_weather_api():
 
     
   api_key = request.args.get('api_key')
-  if (api_key == "3953572e-ffed-453a-bd48-80dd5efb3d27"):
+  if True:
       zipcode = request.args.get('zipcode')
       
-      geo_data = getGeoData(zipcode)
+      geo_data = getGeoData(zipcode, api_key)
         
       if(zipcode != None):
         latitude = geo_data['lat']
         longitude = geo_data['lon']
         
-        weather = getWeatherData(latitude, longitude)
+        weather = getWeatherData(latitude, longitude, api_key)
         
         if(weather != None):
           date_fixed = []
