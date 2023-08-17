@@ -11,14 +11,17 @@ jobs:
   test:
     name: Run tests & display coverage
     runs-on: ubuntu-latest
-    permissions:
+     permissions:
       # Gives the action the necessary permissions for publishing new
       # comments in pull requests.
       pull-requests: write
-      # Gives the action the necessary permissions for pushing data to the
-      # python-coverage-comment-action branch, and for editing existing
+      # Gives the action the necessary permissions for editing existing
       # comments (to avoid publishing multiple comments in the same PR)
       contents: write
+      # Gives the action the necessary permissions for looking up the
+      # workflow that launched this workflow, and download the related
+      # artifact that contains the comment to be published
+      actions: read
     steps:
       - uses: actions/checkout@v3
 
