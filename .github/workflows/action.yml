@@ -1,7 +1,11 @@
 name: coverage
 
-on: [push]
-
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+      
 jobs:
     coverage:
         runs-on: ubuntu-latest
