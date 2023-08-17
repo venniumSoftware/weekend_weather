@@ -48,4 +48,3 @@ jobs:
             junit/**/*.xml
             junit/**/*.trx
             junit/**/*.json
-
