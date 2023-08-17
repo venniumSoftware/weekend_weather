@@ -1,4 +1,3 @@
-pgeocode
 requests
 jsonpath_ng
 flask
