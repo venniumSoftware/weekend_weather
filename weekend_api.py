@@ -65,11 +65,11 @@ def getWeatherData(latitude, longitude, appid):
 
 
 @app.route("/")
-def call_weather_api():
+def call_weather_api(api_key, zipcode):
 
-    
-  api_key = request.args.get('api_key')
-  if True:
+  if api_key == None:  
+    api_key = request.args.get('api_key')
+  if zipcode == None:
     zipcode = request.args.get('zipcode')
       
     geo_data = getGeoData(zipcode, api_key)
