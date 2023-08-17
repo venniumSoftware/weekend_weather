@@ -3,4 +3,4 @@
 import weekend_api
 
 def test_uppercase():
-    assert call_weather_api() != None
+    assert weekend_api.call_weather_api() != None
