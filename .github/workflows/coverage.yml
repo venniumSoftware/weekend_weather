@@ -11,7 +11,7 @@ jobs:
   test:
     name: Run tests & display coverage
     runs-on: ubuntu-latest
-    if:  github.event.workflow_run.conclusion == 'success'
+    if: github.event.workflow_run.event == 'pull_request' &&  github.event.workflow_run.conclusion == 'success'
     permissions:
       # Gives the action the necessary permissions for publishing new
       # comments in pull requests.
@@ -23,7 +23,6 @@ jobs:
       # workflow that launched this workflow, and download the related
       # artifact that contains the comment to be published
       actions: write
-      checks: write
     steps:
       # DO NOT run actions/checkout here, for security reasons
       # For details, refer to https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
