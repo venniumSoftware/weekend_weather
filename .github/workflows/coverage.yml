@@ -23,8 +23,6 @@ jobs:
       # workflow that launched this workflow, and download the related
       # artifact that contains the comment to be published
       actions: write
-      
-      contents: write
       checks: write
     steps:
       # DO NOT run actions/checkout here, for security reasons
