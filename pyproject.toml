@@ -7,11 +7,11 @@ version = "0.0.0"
 description = "Publish diff coverage report as PR comment, and create a coverage badge to display on the readme, for Python projects."
 authors = ["Joachim Jablon <ewjoachim@gmail.com>"]
 license = "MIT License"
-packages = [{ include = "coverage_comment" }]
-include = ["coverage_comment/default.md.j2"]
+packages = [{ include = "weekend_api" }]
+include = ["weekend_api/default.md.j2"]
 
 [tool.poetry.scripts]
-coverage_comment = 'coverage_comment.main:main'
+weekend_api = 'weekend_api.call_weather_api:call_weather_api'
 
 [tool.poetry.dependencies]
 python = "^3.10"
