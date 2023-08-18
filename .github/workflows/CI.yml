@@ -37,7 +37,7 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
           pip install pytest pytest-cov
-          coverage run -m pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml && coverage report xml -i -m 
+          coverage run -m pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml && coverage xml -i 
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
