@@ -48,7 +48,6 @@ jobs:
         run: poetry install
 
       - name: Run tests
-        id: coverage_comment
         env: 
           API_KEY: ${{ secrets.API_KEY }}
           COVERAGE_COMMENT_E2E_ACTION_REF: ${{ github.sha }}
