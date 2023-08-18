@@ -48,7 +48,7 @@ jobs:
         run: poetry install
 
       - name: Run tests
-        run: poetry run pytest tests/test_examples.py
+        run: poetry run pytest
 
       - name: Coverage comment
         id: coverage_comment
