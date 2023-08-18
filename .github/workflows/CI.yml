@@ -64,6 +64,7 @@ jobs:
 
       - name: Rename Coverage HTML
         run: |
+            ls
             cp "**/**/*.html" "python-coverage-comment-action.txt"
 
       - name: Store Pull Request comment to be posted
