@@ -47,8 +47,8 @@ jobs:
       - name: Install deps
         run: poetry install
 
-      - name: Run tests
-        run: poetry run pytest
+        - name: Run tests
+        run: poetry run -m pytest 
 
       - name: Coverage comment
         id: coverage_comment
