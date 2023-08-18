@@ -45,7 +45,7 @@ jobs:
           key: ${{ hashFiles('poetry.lock') }}
 
       - name: Install deps
-        run: poetry install
+        run: poetry install pytest-cov
 
       - name: Run tests
         env: 

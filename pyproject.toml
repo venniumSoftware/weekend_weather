@@ -35,7 +35,6 @@ jsonpath_ng = "*"
 flask = "*"
 setuptools = "*"
 wheel = "*"
-pytest-cov = "*"
 
 
 [build-system]
