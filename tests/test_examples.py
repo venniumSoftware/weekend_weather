@@ -9,6 +9,7 @@ setup(
     packages = find_packages(),
 )
 
+import weekend_api
 
 API_KEY = os.environ['API_KEY']
 
