@@ -8,7 +8,6 @@ import weekend_api
 
 API_KEY = os.environ['API_KEY']
 
-@pytest.fixture
 def test_api():
     assert weekend_api.call_weather_api(API_KEY, 32259) != None
     
