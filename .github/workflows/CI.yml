@@ -53,7 +53,7 @@ jobs:
           COVERAGE_COMMENT_E2E_ACTION_REF: ${{ github.sha }}
           COVERAGE_COMMENT_E2E_REPO_SUFFIX: ${{ github.event.number }}
           COVERAGE_COMMENT_E2E_PR_AUTHOR: ${{ github.event.pull_request.user.login }}
-        run: poetry run pytest
+        run: poetry run pytest --cov=weekend_api --cov-report html > python-coverage-comment-action.txt
 
       - name: Coverage comment
         id: coverage_comment
@@ -64,7 +64,6 @@ jobs:
 
       - name: Store Pull Request comment to be posted
         uses: actions/upload-artifact@v3
-        if: steps.coverage_comment.outputs.COMMENT_FILE_WRITTEN == 'true'
         with:
           name: python-coverage-comment-action
           path: python-coverage-comment-action.txt
