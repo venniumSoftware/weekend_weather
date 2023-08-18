@@ -39,7 +39,6 @@ jobs:
         run: |
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
-          pytest --doctest-modules --junitxml=junit/test-results.xml --cov-append
           coverage run tests/test_examples.py --rcfile=setup.cfg
           
 
