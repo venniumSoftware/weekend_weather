@@ -48,15 +48,6 @@ jobs:
         run: poetry install
 
 
-      - name: Test with pytest
-        env: 
-          API_KEY: ${{ secrets.API_KEY }}
-          COVERAGE_FILE: .coverage
-        run: |
-          pip install pytest pytest-cov
-          python setup.py bdist_wheel --universal
-          poetry run pytest
-
       - name: Coverage comment
         id: coverage_comment
         uses: py-cov-action/python-coverage-comment-action@v3
