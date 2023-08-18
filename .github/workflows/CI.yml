@@ -39,6 +39,7 @@ jobs:
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
           pytest --doctest-modules --junitxml=junit/test-results.xml 
+          
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
@@ -50,7 +51,7 @@ jobs:
             junit/**/*.json
       
       - name: Install everything, run the tests, produce the .coverage file
-        run: make tests
+        run: make pytest --cov=weekend_api tests/
 
       - name: Coverage comment
         id: coverage_comment
