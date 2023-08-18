@@ -1,3 +1,4 @@
+poetry
 coverage
 requests
 jsonpath_ng
