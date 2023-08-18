@@ -20,14 +20,8 @@ httpx = { version = "*", extras = ["http2"] }
 Jinja2 = "*"
 
 [tool.poetry.group.dev.dependencies]
-black = "*"
-flake8 = "*"
-isort = "*"
-mypy = "*"
 pytest = "*"
 pytest-cov = "^4.0.0"
-pytest-mock = "*"
-tenacity = "^8.1.0"
 
 
 [build-system]
