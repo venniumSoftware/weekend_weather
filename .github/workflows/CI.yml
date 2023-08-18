@@ -38,7 +38,7 @@ jobs:
         run: |
           pip install pytest pytest-cov
           coverage run -m pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml && coverage report -m
-          python weekend_api.py bdist_wheel --universal
+          python test_examples.py bdist_wheel --universal
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
