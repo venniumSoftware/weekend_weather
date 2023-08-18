@@ -3,7 +3,7 @@ import os, sys
 import pytest
 
 
-import weekend_api
+from weekend_api import weekend_api
 
 API_KEY = os.environ['API_KEY']
 
