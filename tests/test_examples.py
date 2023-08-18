@@ -3,15 +3,13 @@ import os, sys
 import pytest
 
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
-from weekend_api.weekend_api import call_weather_api
+from . import weekend_api
 
 
 API_KEY = os.environ['API_KEY']
 
 def test_api():
-    assert call_weather_api(API_KEY, 32259) != None
+    assert weekend_api.call_weather_api(API_KEY, 32259) != None
     
 if __name__ == "__main__":
     test_api()
