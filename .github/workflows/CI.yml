@@ -38,7 +38,7 @@ jobs:
         run: |
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
-          file="weather_api.py" && coverage run -m pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml && coverage report -m $file
+          file="weekend_api.py" && coverage run -m pytest test_examples.py --doctest-modules --junitxml=junit/test-results.xml && coverage report -m $file
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
