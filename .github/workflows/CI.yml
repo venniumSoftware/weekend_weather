@@ -51,7 +51,7 @@ jobs:
 
       - name: Upload Coverage
         id: getfilename
-        run: echo "::set-output name=file::$(ls *.txt)"
+        run: echo "::set-output name=file::$(ls *action.txt)"
       - uses: actions/upload-artifact@v1
         with:
           # If you use a different name, update COMMENT_ARTIFACT_NAME accordingly
