@@ -40,6 +40,7 @@ jobs:
           python setup.py bdist_wheel --universal
           pytest --doctest-modules --junitxml=junit/test-results.xml 
           pytest --cov=weekend_api tests/
+          pip install --editable .
           coverage report -m
 
       - name: Publish Test Results
@@ -56,7 +57,6 @@ jobs:
         uses: py-cov-action/python-coverage-comment-action@v3
         with:
           GITHUB_TOKEN: ${{ github.token }}
-          junitxml-path: junit/test-results.xml 
 
       - name: Store Pull Request comment to be posted
         uses: actions/upload-artifact@v3
