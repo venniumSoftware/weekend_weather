@@ -39,7 +39,7 @@ jobs:
         run: |
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
-          coverage run --rcfile=setup.cfg -m pytest
+          coverage run -m pytest
           coverage report -m 
 
       - name: Coverage comment
