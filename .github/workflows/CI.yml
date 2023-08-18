@@ -39,12 +39,11 @@ jobs:
         run: |
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
-          coverage run --rcfile=setup.cfg -m pytest
-          coverage report -m 
+          poetry run pytest
 
       - name: Coverage comment
         id: coverage_comment
-        uses: py-cov-action/python-coverage-comment-action@v2
+        uses: py-cov-action/python-coverage-comment-action@v3
         with:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_PR_RUN_ID: ${{ inputs.GITHUB_PR_RUN_ID }}
