@@ -32,6 +32,21 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install Poetry
+        run: |
+          pipx install poetry --python=python3.11
+
+      - name: Poetry caches
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/
+          key: ${{ hashFiles('poetry.lock') }}
+
+      - name: Install deps
+        run: poetry install
+
+
       - name: Test with pytest
         env: 
           API_KEY: ${{ secrets.API_KEY }}
