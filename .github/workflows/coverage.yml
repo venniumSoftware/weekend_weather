@@ -6,6 +6,7 @@ on:
     workflows: ["CI"]
     types:
       - completed
+      
 
 jobs:
   test:
