@@ -14,7 +14,7 @@ include = ["coverage_comment/default.md.j2"]
 coverage_comment = 'coverage_comment.main:main'
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 coverage = { version = "*", extras = ["toml"] }
 diff-cover = "*"
 httpx = { version = "*", extras = ["http2"] }
