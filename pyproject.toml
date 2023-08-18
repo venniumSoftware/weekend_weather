@@ -7,7 +7,7 @@ version = "0.0.0"
 description = "Publish diff coverage report as PR comment, and create a coverage badge to display on the readme, for Python projects."
 authors = ["Robert Tross <robert.f.tross@vennium.com>"]
 license = "MIT License"
-packages = [{ include = "weekend_api.py" }]
+packages = [{ include = "weekend_api" }]
 
 [tool.poetry.scripts]
 weekend_api = 'weekend_api.call_weather_api:call_weather_api'
