@@ -6,7 +6,7 @@ on:
     workflows: ["CI"]
     types:
       - completed
-      
+
 
 jobs:
   test:
@@ -31,7 +31,7 @@ jobs:
         uses: py-cov-action/python-coverage-comment-action@v3
         with:
           GITHUB_TOKEN: ${{ github.token }}
-          #GITHUB_PR_RUN_ID: ${{ github.event.workflow_run.id }}
+          GITHUB_PR_RUN_ID: ${{ github.event.workflow_run.id }}
           # Update those if you changed the default values:
           COMMENT_ARTIFACT_NAME: python-coverage-comment-action
           COMMENT_FILENAME: python-coverage-comment-action.txt
