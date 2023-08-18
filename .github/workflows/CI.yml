@@ -62,11 +62,14 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           ANNOTATE_MISSING_LINES: true
 
+      - name: Rename Coverage HTML
+        run: |
+            cp "htmlcov/*.html" "python-coverage-comment-action.txt"
 
       - name: Store Pull Request comment to be posted
         uses: actions/upload-artifact@v3
         with:
           name: python-coverage-comment-action
-          path: htmlcov/*.html
+          path: python-coverage-comment-action.txt
 
           
