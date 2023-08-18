@@ -1,6 +1,6 @@
 # test_assert_examples.py
 
-import weekend_api
+import .weekend_api
 import os
 
 
