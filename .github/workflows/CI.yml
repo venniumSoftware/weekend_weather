@@ -35,11 +35,12 @@ jobs:
       - name: Test with pytest
         env: 
           API_KEY: ${{ secrets.API_KEY }}
+          COVERAGE_FILE: .coverage
         run: |
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
           pytest --doctest-modules --junitxml=junit/test-results.xml 
-          coverage run tests/test_examples.py
+          coverage run -m -i tests/test_examples.py
           
 
       - name: Publish Test Results
@@ -51,6 +52,12 @@ jobs:
             junit/**/*.trx
             junit/**/*.json
       
+      - name: Store coverage file
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: .coverage
+
       - name: Coverage comment
         id: coverage_comment
         uses: py-cov-action/python-coverage-comment-action@v3
