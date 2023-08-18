@@ -41,7 +41,7 @@ jobs:
           python setup.py bdist_wheel --universal
           pytest --doctest-modules --junitxml=junit/test-results.xml
           pytest --cov=weekend_api tests/
-          coverage report weekend_api.py
+          coverage xml -i weekend_api.py
           
 
       - name: Publish Test Results
