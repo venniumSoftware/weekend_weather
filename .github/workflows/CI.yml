@@ -45,8 +45,11 @@ jobs:
       - name: Coverage comment
         uses: py-cov-action/python-coverage-comment-action@v3
         with:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_PR_RUN_ID: ${{ inputs.GITHUB_PR_RUN_ID }}
           COMMENT_ARTIFACT_NAME: python-coverage-comment-action
           COMMENT_FILENAME: python-coverage-comment-action.txt
+          
 
       - name: Store Pull Request comment to be posted
         uses: actions/upload-artifact@v3
