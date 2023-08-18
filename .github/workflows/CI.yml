@@ -39,9 +39,9 @@ jobs:
       - name: Poetry caches
         uses: actions/cache@v3
         with:
+          key: ${{ hashFiles('poetry.lock') }}
           path: |
             ~/.cache/
-          key: ${{ hashFiles('poetry.lock') }}
 
       - name: Install deps
         run: poetry install
