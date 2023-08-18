@@ -32,5 +32,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_PR_RUN_ID: ${{ github.event.workflow_run.id }}
           # Update those if you changed the default values:
-          #COMMENT_ARTIFACT_NAME: python-coverage-comment-action
-          #COMMENT_FILENAME: python-coverage-comment-action.txt
+          COMMENT_ARTIFACT_NAME: python-coverage-comment-action
+          COMMENT_FILENAME: .coverage
