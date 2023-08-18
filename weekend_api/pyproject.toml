@@ -10,7 +10,7 @@ license = "MIT License"
 packages = [{ include = "weekend_api" }]
 
 [tool.poetry.scripts]
-weekend_api = 'weekend_api.call_weather_api:call_weather_api'
+weekend_api = 'weekend_api.main:call_weather_api'
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -20,9 +20,14 @@ httpx = { version = "*", extras = ["http2"] }
 Jinja2 = "*"
 
 [tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+isort = "*"
+mypy = "*"
 pytest = "*"
 pytest-cov = "^4.0.0"
-exceptiongroup = "*"
+pytest-mock = "*"
+tenacity = "^8.1.0"
 
 
 [build-system]
@@ -34,9 +39,8 @@ build-backend = "poetry.core.masonry.api"
 addopts = """
     --cov-report term-missing --cov-branch --cov-report html --cov-report term
     --cov=weekend_api -vv --strict-markers -rfE
-    --ignore=tests/end_to_end/repo
 """
-testpaths = ["tests/"]
+testpaths = ["tests"]
 
 filterwarnings = ["error"]
 markers = [
