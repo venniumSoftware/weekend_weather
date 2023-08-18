@@ -2,7 +2,7 @@
 import os, sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import weather_api
+import weekend_api
 
 
 API_KEY = os.environ['API_KEY']
