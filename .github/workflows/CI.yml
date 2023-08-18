@@ -49,8 +49,9 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_PR_RUN_ID: ${{ github.event.workflow_run.id }}
 
-      - id: getfilename
-        run: echo "::set-output name=file::$(ls build/*.txt)"
+      - name: Upload Coverage
+        id: getfilename
+        run: echo "::set-output name=file::$(ls *.txt)"
       - uses: actions/upload-artifact@v1
         with:
           # If you use a different name, update COMMENT_ARTIFACT_NAME accordingly
