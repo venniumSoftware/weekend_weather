@@ -49,10 +49,10 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_PR_RUN_ID: ${{ github.event.workflow_run.id }}
 
-      - name: Store Pull Request comment to be posted
-        uses: actions/upload-artifact@v3
+      - id: getfilename
+        run: echo "::set-output name=file::$(ls build/*.txt)"
+      - uses: actions/upload-artifact@v1
         with:
           # If you use a different name, update COMMENT_ARTIFACT_NAME accordingly
           name: python-coverage-comment-action
-          # If you use a different name, update COMMENT_FILENAME accordingly
-          path: src/python-coverage-comment-action.txt
+          path: ${{ steps.getfilename.outputs.file }}
