@@ -1,0 +1,70 @@
+[tool.black]
+target-version = ["py310"]
+
+[tool.poetry]
+name = "weekend-api"
+version = "0.0.0"
+description = "Publish diff coverage report as PR comment, and create a coverage badge to display on the readme, for Python projects."
+authors = ["Robert Tross <robert.f.tross@vennium.com>"]
+license = "MIT License"
+packages = [{ include = "weekend_api" }]
+
+[tool.poetry.scripts]
+weekend_api = 'weekend_api:weekend_api'
+
+[tool.poetry.dependencies]
+python = "^3.10"
+coverage = { version = "*", extras = ["toml"] }
+diff-cover = "*"
+httpx = { version = "*", extras = ["http2"] }
+Jinja2 = "*"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+isort = "*"
+mypy = "*"
+pytest = "*"
+pytest-cov = "^4.0.0"
+pytest-mock = "*"
+tenacity = "^8.1.0"
+exceptiongroup = "*"
+coverage = "*"
+requests = "*"
+jsonpath_ng = "*"
+flask = "*"
+setuptools = "*"
+wheel = "*"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+addopts = """
+    --cov-report term-missing --cov-branch --cov-report html --cov-report term
+    --cov=weekend_api -vv --strict-markers -rfE
+"""
+testpaths = ["tests"]
+
+filterwarnings = ["error"]
+markers = [
+    "repo_suffix: Allows to use an additional suffix for the e2e test repo.",
+    "code_path: Allows to place the code in a subdirectory for the e2e test repo.",
+    "subproject_id: Allows to use a different subproject id for the e2e test repo.",
+]
+
+[tool.coverage.run]
+relative_files = true
+
+[tool.coverage.report]
+exclude_also = ["\\.\\.\\."]
+
+[tool.mypy]
+no_implicit_optional = true
+
+[tool.isort]
+profile = "black"
+skip = [".venv", ".tox"]
