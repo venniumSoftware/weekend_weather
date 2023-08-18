@@ -1,7 +1,11 @@
 # test_assert_examples.py
 import os, sys
 import pytest
-from .weekend_api import call_weather_api
+
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+from weekend_api.weekend_api import call_weather_api
 
 
 API_KEY = os.environ['API_KEY']
