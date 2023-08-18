@@ -39,6 +39,7 @@ jobs:
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
           pytest --doctest-modules --junitxml=junit/test-results.xml 
+          coverage run weekend_api tests/
           
 
       - name: Publish Test Results
@@ -50,9 +51,6 @@ jobs:
             junit/**/*.trx
             junit/**/*.json
       
-      - name: Install everything, run the tests, produce the .coverage file
-        run: make pytest --cov=weekend_api tests/
-
       - name: Coverage comment
         id: coverage_comment
         uses: py-cov-action/python-coverage-comment-action@v3
