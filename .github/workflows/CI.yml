@@ -50,6 +50,9 @@ jobs:
       - name: Run tests
         env: 
           API_KEY: ${{ secrets.API_KEY }}
+          COVERAGE_COMMENT_E2E_ACTION_REF: ${{ github.sha }}
+          COVERAGE_COMMENT_E2E_REPO_SUFFIX: ${{ github.event.number }}
+          COVERAGE_COMMENT_E2E_PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: poetry run pytest
 
       - name: Coverage comment
