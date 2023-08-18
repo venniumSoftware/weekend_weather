@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="weather_api",
+    name="weather-api",
     version="0.0.1",
     author="Robert Fox Tross",
     author_email="robert.f.tross@vennium.com",
