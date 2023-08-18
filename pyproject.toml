@@ -10,7 +10,7 @@ license = "MIT License"
 packages = [{ include = "weekend_api" }]
 
 [tool.poetry.scripts]
-weekend_api = 'weekend_api.main'
+weekend_api = 'weekend_api.main:weekend_api'
 
 [tool.poetry.dependencies]
 python = "^3.10"
