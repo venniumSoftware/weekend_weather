@@ -1,7 +1,8 @@
 # test_assert_examples.py
+import os, sys
 
-import .weekend_api
-import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import weekend_api
 
 
 API_KEY = os.environ['API_KEY']
