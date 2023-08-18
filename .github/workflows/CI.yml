@@ -36,11 +36,12 @@ jobs:
         env: 
           API_KEY: ${{ secrets.API_KEY }}
           COVERAGE_FILE: .coverage
+          PYTEST_ADD_OPTS: --cov-append
         run: |
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
           pytest --doctest-modules --junitxml=junit/test-results.xml
-          coverage run tests/test_examples.py -m --rcfile=setup.cfg
+          coverage report -m --rcfile=setup.cfg
           
 
       - name: Publish Test Results
@@ -63,6 +64,8 @@ jobs:
         uses: py-cov-action/python-coverage-comment-action@v3
         with:
           GITHUB_TOKEN: ${{ github.token }}
+          COMMENT_ARTIFACT_NAME: python-coverage-comment-action
+          COMMENT_FILENAME: python-coverage-comment-action.txt
 
       - name: Store Pull Request comment to be posted
         uses: actions/upload-artifact@v3
