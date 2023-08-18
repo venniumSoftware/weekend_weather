@@ -3,12 +3,6 @@ import os, sys
 import pytest
 
 
-from setuptools import setup, find_packages
-setup(
-    name = 'weekend_api',
-    packages = find_packages(),
-)
-
 import weekend_api
 
 API_KEY = os.environ['API_KEY']
