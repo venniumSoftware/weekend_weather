@@ -40,8 +40,8 @@ jobs:
           python setup.py bdist_wheel --universal
           pytest --doctest-modules --junitxml=junit/test-results.xml 
           pytest --cov=weekend_api tests/
-          coverage xml -i
-          
+          file="weekend_api.py" && coverage report -m $file 
+
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
