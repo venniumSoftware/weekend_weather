@@ -39,10 +39,9 @@ jobs:
         run: |
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
-          pip install -e .
           pytest --doctest-modules --junitxml=junit/test-results.xml
           pytest --cov=weekend_api tests/
-          coverage xml -i weekend_api.py
+          coverage -source=/,/test report -m
           
 
       - name: Publish Test Results
