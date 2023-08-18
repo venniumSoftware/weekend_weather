@@ -64,7 +64,7 @@ jobs:
 
       - name: Rename Coverage HTML
         run: |
-            cp "../htmlcov/*.html" "python-coverage-comment-action.txt"
+            cp "**/**/*.html" "python-coverage-comment-action.txt"
 
       - name: Store Pull Request comment to be posted
         uses: actions/upload-artifact@v3
