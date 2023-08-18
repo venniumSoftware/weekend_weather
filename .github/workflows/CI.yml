@@ -41,23 +41,6 @@ jobs:
           python setup.py bdist_wheel --universal
           coverage run --rcfile=setup.cfg -m pytest
           coverage report -m 
-          
-          
-
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          files: |
-            junit/**/*.xml
-            junit/**/*.trx
-            junit/**/*.json
-      
-      - name: Store coverage file
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage
-          path: .coverage
 
       - name: Coverage comment
         id: coverage_comment
