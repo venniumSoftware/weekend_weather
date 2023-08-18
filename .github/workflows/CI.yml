@@ -40,7 +40,7 @@ jobs:
           pip install pytest pytest-cov
           python setup.py bdist_wheel --universal
           pytest --doctest-modules --junitxml=junit/test-results.xml
-          coverage run -m -i tests/test_examples.py
+          coverage run -m tests/test_examples.py
           
 
       - name: Publish Test Results
