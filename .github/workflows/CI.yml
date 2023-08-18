@@ -36,7 +36,12 @@ jobs:
         run: |
           pipx install poetry --python=python3.10
 
-
+      - name: Poetry caches
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/
+          key: ${{ hashFiles('poetry.lock') }}
 
       - name: Install deps
         run: poetry install
