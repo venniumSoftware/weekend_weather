@@ -3,5 +3,5 @@ pip install requests
 pip install jsonpath_ng
 pip install flask
 
-python weekend_api.py
+python weekend_api/weekend_api.py
 pause
