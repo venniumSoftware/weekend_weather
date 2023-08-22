@@ -27,11 +27,11 @@ def getGeoData(input_zip, appid):
  
   # sending get request and saving the response as response object
   r = requests.get(url = geo_api_url, params = params_geo)
- 
+
   # extracting data in json format
   geo_data = r.json()
   
-  if geo_data['cod'] != "200":
+  if r.status_code != 200:
       return None
   else:
       return geo_data
@@ -54,7 +54,7 @@ def getWeatherData(latitude, longitude, appid):
   # extracting data in json format
   weather_data = r.json()
   
-  if weather_data['cod'] != "200":
+  if r.status_code != 200:
       return None
   else:
     jsonpath_list = parse('list[*]')
@@ -65,7 +65,7 @@ def getWeatherData(latitude, longitude, appid):
 
 
 @app.route("/")
-def call_weather_api(api_key, zipcode):
+def call_weather_api(api_key=None, zipcode=None):
 
   if api_key == None:  
     api_key = request.args.get('api_key')
@@ -73,7 +73,6 @@ def call_weather_api(api_key, zipcode):
     zipcode = request.args.get('zipcode')
       
     geo_data = getGeoData(zipcode, api_key)
-    
         
     if(zipcode != None and geo_data != None):
         latitude = geo_data['lat']
